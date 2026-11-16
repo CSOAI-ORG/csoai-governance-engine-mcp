@@ -39,6 +39,6 @@ Contact nicholas@meok.ai for:
 
 ## Pricing
 - Free: 5 calls/day (evaluation)
-- Pro: £299/mo (single framework)
-- Business: £999/mo (all frameworks)
-- Enterprise: £2,500/mo (custom + SLA)
+- Pro: quoted per job (single framework)
+- Business: quoted per job (all frameworks)
+- Enterprise: quoted per job (custom + SLA)

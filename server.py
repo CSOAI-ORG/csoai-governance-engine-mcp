@@ -230,7 +230,7 @@ api_key: str = "") -> str:
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://buy.stripe.com/5kQ6oJ0xS3ce8sl7ew8k91j"}
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
 
     if err := _check_rate_limit(): return err
     
@@ -349,7 +349,7 @@ api_key: str = "") -> str:
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://buy.stripe.com/5kQ6oJ0xS3ce8sl7ew8k91j"}
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
 
     if err := _check_rate_limit(): return err
     
@@ -456,7 +456,7 @@ api_key: str = "") -> str:
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://buy.stripe.com/5kQ6oJ0xS3ce8sl7ew8k91j"}
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
 
     if err := _check_rate_limit(): return err
     
@@ -475,7 +475,7 @@ api_key: str = "") -> str:
     
     diy_total = (cost["annual_per_system"] * systems_count) + cost["qms_setup"] + (cost["conformity"] * systems_count) + cost["legal"]
     consulting_total = diy_total * 1.5  # Consulting adds 50% overhead
-    meok_total = 11988 + (1000 * systems_count)  # £999/mo + per-system assessment
+    meok_total = 11988 + (1000 * systems_count)
     
     if has_27001:
         diy_total *= (1 - iso_discount)
@@ -547,7 +547,7 @@ def list_all_tools(api_key: str = "") -> str:
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://buy.stripe.com/5kQ6oJ0xS3ce8sl7ew8k91j"}
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
 
     tools = {
         "META (unique to engine)": [
@@ -663,7 +663,7 @@ def compliance_score_engine(system_description: str, frameworks: str = "eu_ai_ac
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://buy.stripe.com/5kQ6oJ0xS3ce8sl7ew8k91j"}
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
 
     if err := _check_rate_limit(): return err
     desc = system_description.lower()
@@ -749,7 +749,7 @@ def get_full_audit_trail(limit: int = 50, api_key: str = "") -> str:
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://buy.stripe.com/5kQ6oJ0xS3ce8sl7ew8k91j"}
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
 
     return {'total': len(_full_audit), 'entries': _full_audit[-limit:], 'note': 'Enterprise: full trail with cryptographic signing'}
     return {'total': len(_full_audit), 'entries': _full_audit[-limit:], 'note': 'Enterprise: full trail with cryptographic signing'}
@@ -764,10 +764,10 @@ if __name__ == "__main__":
     main()
 
 
-# ── MEOK monetization layer (Stripe upgrade · PAYG · pricing) ──────────
-# Free tier is zero-config. Upgrade to Pro (unlimited) or pay-as-you-go per call.
+# ── MEOK pricing pointer (pay per delivered job; no subscriptions) ──────────
+# No tiers. Jobs are quoted individually at https://meok.ai/pricing.
 import os as _meok_os
-MEOK_STRIPE_UPGRADE = "https://buy.stripe.com/5kQ6oJ0xS3ce8sl7ew8k91j"  # Pro (unlimited)
+MEOK_STRIPE_UPGRADE = "https://meok.ai/pricing"  # Pro (unlimited)
 MEOK_PAYG_KEY = _meok_os.environ.get("MEOK_PAYG_KEY", "")  # set to enable PAYG (x402 / ~GBP0.05 per call)
 MEOK_PRICING = "https://meok.ai/pricing"
 
